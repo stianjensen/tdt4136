@@ -1,0 +1,19 @@
+1:
+The heuristic function returns a number that gets lower as the difference between the wanted end result and the current state decreases.
+
+2:
+The generate children procedure generates up to four child states, where the space has switched place with one checker. There are at most four possible checkers that can switch places with the space.
+Before the new state is added, we check that it has not already been tested.
+
+3:
+The shortest variant has three checkers of each color.
+This is the path it takes:
+[1,1,1,None,-1,-1,-1, 1,1,1,-1,None,-1,-1, 1,1,None,-1,1,-1,-1, 1,None,1,-1,1,-1,-1, 1,-1,1,None,1,-1,-1, 1,-1,1,-1,1,None,-1, 1,-1,1,-1,1,-1,None, 1,-1,1,-1,None,-1,1, 1,-1,None,-1,1,-1,1, None,-1,1,-1,1,-1,1, -1,None,1,-1,1,-1,1, -1,-1,1,None,1,-1,1, -1,-1,1,-1,1,None,1, -1,-1,1,-1,None,1,1, -1,-1,None,-1,1,1,1, -1,-1,-1,None,1,1,1]
+
+One by one, checkers from the left side are being passed on to the right, at the same time shuffling checkers from the right to the left.
+
+With 6 checkers of each colors, this is the path:
+[1,1,1,1,1,1,None,-1,-1,-1,-1,-1,-1, 1,1,1,1,1,1,-1,None,-1,-1,-1,-1,-1, 1,1,1,1,1,None,-1,1,-1,-1,-1,-1,-1, 1,1,1,1,None,1,-1,1,-1,-1,-1,-1,-1, 1,1,1,1,-1,1,None,1,-1,-1,-1,-1,-1, 1,1,1,1,-1,1,-1,1,None,-1,-1,-1,-1, 1,1,1,1,-1,1,-1,1,-1,None,-1,-1,-1, 1,1,1,1,-1,1,-1,None,-1,1,-1,-1,-1, 1,1,1,1,-1,None,-1,1,-1,1,-1,-1,-1, 1,1,1,None,-1,1,-1,1,-1,1,-1,-1,-1, 1,1,None,1,-1,1,-1,1,-1,1,-1,-1,-1, 1,1,-1,1,None,1,-1,1,-1,1,-1,-1,-1, 1,1,-1,1,-1,1,None,1,-1,1,-1,-1,-1, 1,1,-1,1,-1,1,-1,1,None,1,-1,-1,-1, 1,1,-1,1,-1,1,-1,1,-1,1,None,-1,-1, 1,1,-1,1,-1,1,-1,1,-1,1,-1,None,-1, 1,1,-1,1,-1,1,-1,1,-1,None,-1,1,-1, 1,1,-1,1,-1,1,-1,None,-1,1,-1,1,-1, 1,1,-1,1,-1,None,-1,1,-1,1,-1,1,-1, 1,1,-1,None,-1,1,-1,1,-1,1,-1,1,-1, 1,None,-1,1,-1,1,-1,1,-1,1,-1,1,-1, None,1,-1,1,-1,1,-1,1,-1,1,-1,1,-1, -1,1,None,1,-1,1,-1,1,-1,1,-1,1,-1, -1,1,-1,1,None,1,-1,1,-1,1,-1,1,-1, -1,1,-1,1,-1,1,None,1,-1,1,-1,1,-1, -1,1,-1,1,-1,1,-1,1,None,1,-1,1,-1, -1,1,-1,1,-1,1,-1,1,-1,1,None,1,-1, -1,1,-1,1,-1,1,-1,1,-1,1,-1,1,None, -1,1,-1,1,-1,1,-1,1,-1,1,-1,None,1, -1,1,-1,1,-1,1,-1,1,-1,None,-1,1,1, -1,1,-1,1,-1,1,-1,None,-1,1,-1,1,1, -1,1,-1,1,-1,None,-1,1,-1,1,-1,1,1, -1,1,-1,None,-1,1,-1,1,-1,1,-1,1,1, -1,None,-1,1,-1,1,-1,1,-1,1,-1,1,1, -1,-1,None,1,-1,1,-1,1,-1,1,-1,1,1, -1,-1,-1,1,None,1,-1,1,-1,1,-1,1,1, -1,-1,-1,1,-1,1,None,1,-1,1,-1,1,1, -1,-1,-1,1,-1,1,-1,1,None,1,-1,1,1, -1,-1,-1,1,-1,1,-1,1,-1,1,None,1,1, -1,-1,-1,1,-1,1,-1,1,-1,None,1,1,1, -1,-1,-1,1,-1,1,-1,None,-1,1,1,1,1, -1,-1,-1,1,-1,None,-1,1,-1,1,1,1,1, -1,-1,-1,None,-1,1,-1,1,-1,1,1,1,1, -1,-1,-1,-1,None,1,-1,1,-1,1,1,1,1, -1,-1,-1,-1,-1,1,None,1,-1,1,1,1,1, -1,-1,-1,-1,-1,1,-1,1,None,1,1,1,1, -1,-1,-1,-1,-1,1,-1,None,1,1,1,1,1, -1,-1,-1,-1,-1,None,-1,1,1,1,1,1,1, -1,-1,-1,-1,-1,-1,None,1,1,1,1,1,1]
+
+4:
+As the A* algorithm I tried to implement turned out not to be very intelligent, it doesn't really pose any advantages over regular DFS or BFS. It checks out all possibillities before finding the correctanswer.

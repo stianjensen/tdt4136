@@ -16,4 +16,4 @@ if path is None:
     print "No path found"
 else:
     print "Path found:", path
-    print "Length:", len(path)
+    print "Moves:", len(path)-1

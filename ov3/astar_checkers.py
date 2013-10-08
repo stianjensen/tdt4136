@@ -3,7 +3,10 @@ from astar import Astar, Node
 
 class AstarCheckers(Astar):
     def heuristic(self, node, start, end):
-        return 1
+        diff = 0
+        for i in range(len(node.state)):
+            diff += (node.state[i] == end.state[i])
+        return diff/(len(node.state)*1.0)+1
 
 
 class CheckersNode(Node):
