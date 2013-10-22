@@ -1,0 +1,48 @@
+I chose to represent the board as a two-dimensional matrix, as this was the most obvious way to store it, and it's easy to work with in python.
+
+The objective function calculates the number of cells that are filled with eggs. It also calculates an estimate of how many eggs the board might have room for within the given constraints.
+Finally it calculates how many eggs in each row, column and diagonal that exceed the given limit.
+Based on these numbers it returns a number from 0 to 1.
+
+In the neighbor generation, for each step every tile on the board is flipped in turn. That means, for every tile that has an egg a neighbor state is generated where that tile does not have an egg, and vice versa.
+The program keeps track of which states it has explored so no state is explored twice.
+
+For M=N=5 and K=2 the output is as follows:
+10100
+00101
+01001
+01010
+10010
+
+For M=N=& and K=2 the output is as follows:
+001010
+100001
+100100
+010100
+010001
+001010
+
+For M=N=8 and K=1 the output is as follows:
+00010110
+10010000
+01111000
+10111101
+10000100
+10101101
+01110110
+00001100
+
+For M=N=10 and K=3 the output is as follows:
+0010010010
+1000100000
+1001010000
+1000100000
+0000100101
+0000011001
+0101000010
+0010000101
+0010000100
+0001001010
+
+The difference between an objective function and an heuristic is that a heuristic describe the quality of a partial solution, whereas an objective describe the quality of a complete solution.
+This means that when running simulated annealing you can terminate at any time and have a complete solution (albeit not necessarily not a very good one). When using a heuristic function (in, say, A*) it will only guide you towards the complete solution, and you don't have an answer until you are finished.
